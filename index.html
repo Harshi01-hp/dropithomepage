@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://kit.fontawesome.com/96c75676d8.js" crossorigin="anonymous"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyX95Pp5Kdh_u6Gv_BSRYuu4jSt3dZjJo&libraries=places"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+<script src="https://kit.fontawesome.com/96c75676d8.js" crossorigin="anonymous"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyX95Pp5Kdh_u6Gv_BSRYuu4jSt3dZjJo&libraries=places"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+
+<link rel="stylesheet" href="style.css">
+<title>Drop It</title>
+<style>
+   
+</style>
+</head>
+<body>
+    <div id="above-bar"></div>
+
+    <!-- <div id="navbar"></div> -->
+    <div id="bottom-bar"></div>
+
+<!-- <div class="bottom-bar">
+        <div class="bottom-bar-left">
+            <a href="index.html" class="bottom-bar-item">
+                <i class="fas fa-home"></i> Home
+            </a>
+            <a href="hotdeals.html" class="bottom-bar-item">
+                <i class="fas fa-fire"></i> Hot Deals
+            </a>
+            <a href="new_products.html" class="bottom-bar-item">
+                <img src="assets/li_megaphone.png" alt="New Products"> New Products
+            </a>
+        </div>
+        <div class="bottom-bar-right">
+            <div class="bottom-bar-item">
+                <i class="fas fa-phone"></i> 108-10808 24/7 Support Center
+            </div>
+        </div>
+    </div> -->
+  
+    <div id="navbar">
+        <div class="navbar-item">
+            <img src="./assets/logo.png" alt="Drop It">
+            <a href="index.html"><h1>Drop It</h1></a>
+        </div>
+        <div class="navbar-item">
+            <div class="search-container">
+                <div class="dropdown">
+                <span class="all-products-dropdown">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                    All Categories 
+                    <i class="fas fa-chevron-down" style="color: black;" aria-hidden="true"></i>
+                </span>
+                <div class="dropdown-content">
+                    <a href="vegetables.html">Vegetables</a>
+                    <a href="fruits.html">Fruits</a>
+                    <a href="meat.html">Meat</a>
+                    <a href="electronics.html">Electronics</a>
+                    <a href="home-essentials.html">Home Essentials</a>
+                </div>
+            </div>
+    
+                <div class="search-input-container">
+                    <input type="text" id="search-input" placeholder="">
+                    <span id="placeholder-text" class="placeholder-text">Search for "Detergents"</span>
+                </div>
+                <button type="button" class="search-button"><i class="fas fa-search" aria-hidden="true"></i></button>
+            </div>
+        </div>
+        <div class="navbar-item navbar-right">
+            <div class="navbar-item">
+                <a href="wishlist.html">
+                    <img src="./assets/heart.png" alt="Heart" onclick="toggleWishlist(this, 'Product Name')">
+                </a>
+            </div>
+            <div class="navbar-item dropdown">
+                <a href="">
+                    <img src="./assets/li-cart.png" alt="Cart">
+                    <span id="cart-quantity" class="cart-quantity" style="display: none;">0</span>
+                </a>
+            </div>
+            
+            <div class="navbar-item dropdown">
+            <img src="./assets/signup.png" alt="Sign Up">                
+            <div class="dropdown-content">
+                    <a href="profile.html">Profile</a>
+                    <a href="login.html">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>         
+
+     <div class="hero-section" style="margin: 0;">
+        <div class="hero-text">
+            <h1>Don't miss amazing<br>grocery deals.</h1>
+            <div class="hero-subtext">
+                <p>Save up to 50% off on your first order</p>
+            </div>
+            <div class="email-subscription">
+                <input id="email-input" type="email" placeholder="Enter your email address">
+                <button id="subscribe-btn">Subscribe</button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="./assets/hero.png" alt="Grocery Deals">
+        </div>
+    </div> 
+    
+
+
+    
+    <div class="explore-section">
+        <div class="explore-header">
+            <p>Explore</p>
+            <div class="explore-buttons">
+                <a href="index.html" class="explore-button">See
+            All</a>
+                <a href="vegetables.html" class="explore-button">Vegetables</a>
+                <a href="fruits.html" class="explore-button">Fruits</a>
+                <a href="stationery.html" class="explore-button">Stationery</a>
+                <a href="home_needs.html" class="explore-button">Home Needs</a> 
+             </div>
+        </div>
+        <div class="categories">
+            <button class="arrow left-arrow"><i class="fa-solid fa-chevron-left"></i></i></button>
+            <div class="category-list">
+                <div class="category-item" style="background-color: #FEEFEA;">
+                    <img src="./assets/image 3.png" alt="Fruits & Vegetables">
+                    <p>Fruits & Vegetables</p>
+                    <span>20 Items</span>
+                </div>
+                <div class="category-item" style="background-color: #FFF3FF;">
+                    <img src="./assets/masala.png" alt="Masala & Dry Fruits">
+                    <p>Masala & Dry Fruits</p>
+                    <span>220 Items</span>
+                </div>
+                <div class="category-item" style="background-color: #F2FCE4;">
+                    <img src="./assets/frozen_food.png" alt="Frozen Food & Ice Creams">
+                    <p>Frozen Food & Ice Creams</p>
+                    <span>10 Items</span>
+                </div>
+                <div class="category-item" style="background-color: #FEEFEA;">
+                    <img src="./assets/packaged.png" alt="Packaged Food">
+                    <p>Packaged Food</p>
+                    <span>40 Items</span>
+                </div>
+                <div class="category-item" style="background-color: #ECFFEC;">
+                    <img src="./assets/juice.png" alt="Cool Drinks & Juices">
+                    <p>Cool Drinks & Juices</p>
+                    <span>23 Items</span>
+                </div>
+                <div class="category-item" style="background-color: #FFFCEB;">
+                    <img src="./assets/electrical.png" alt="Electrical & Accessories">
+                    <p>Electrical & Accessories</p>
+                    <span>3 Items</span>
+                </div>
+                <div class="category-item" style="background-color: #DEF9EC;">
+                    <img src="./assets/stationery.png" alt="Stationery & Crafts">
+                    <p>Stationery & Crafts</p>
+                    <span>9 Items</span>
+                </div>
+                <div class="category-item" style="background-color: #ECFFEC;">
+                    <img src="./assets/juice.png" alt="Cool Drinks & Juices">
+                    <p>Cool Drinks & Juices</p>
+                    <span>23 Items</span>
+                </div>
+                
+            </div>
+
+            <button class="arrow right-arrow"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+    </div> 
+
+    <!-- features -->
+
+    <div class="featured-section">
+        <div class="featured-header">
+            <p>Featured Products</p>
+            <div class="featured-buttons">
+                <a href="index.html" class="featured-button">All</a>
+                <a href="vegetables.html" class="featured-button">Vegetables</a>
+                <a href="fruits.html" class="featured-button">Fruits</a>
+                <a href="stationery.html" class="featured-button">Stationery</a>
+                <a href="home_needs.html" class="featured-button">Home Needs</a>
+            </div>
+        </div>
+        <div class="featured-products">
+            <button class="arrow left-arrow"><i class="fas fa-arrow-left"></i></button>
+            <div class="product-list">
+                <div class="product-item">
+                    <img src="./assets/product1.png" alt="Product 1">
+                    <div class="product-name-wrapper">
+                        <p>Tomato Local</p>
+                        <i class="far fa-heart heart-icon" onclick="toggleWishlist(this, 'Tomato Local')"></i>
+                    </div>
+                    <span class="product-weight">1kg</span>
+                    <div class="product-rating" style="margin-top: 10px;">
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star inactive"></i>
+                        <span style="font-size: 12px; color: #ADADAD;">(4)</span>
+
+                    </div>
+                    <div class="product-price-add">
+                        <div class="product-price">₹ 60</div>
+                        <div class="add-to-cart">
+                            <button class="add-to-cart-button" onclick="addToCart(this)">
+                                <i class="fas fa-shopping-cart"></i> Add
+                            </button>
+                        </div>
+                        <div class="quantity-controls" style="display: none;">
+                            <button class="quantity-button" onclick="updateQuantity(this, -1)">-</button>
+                            <span class="quantity">1</span>
+                            <button class="quantity-button" onclick="updateQuantity(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>             
+                
+                <div class="product-item">
+                    <img src="./assets/product2.png" alt="Product 2">
+                    <div class="product-name-wrapper">
+                        <p>Ginger</p>
+                        <i class="far fa-heart heart-icon" onclick="toggleWishlist(this, 'Ginger')"></i>
+                    </div>
+                    <span>200g</span>
+                    <div class="product-rating" style="margin-top: 10px;">
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star inactive"></i>
+                        <span style="font-size: 12px; color: #ADADAD;">(4)</span>
+
+                    </div>
+                    <div class="product-price-add">
+                        <div class="product-price">₹ 60</div>
+                        <div class="add-to-cart">
+                            <button class="add-to-cart-button" onclick="addToCart(this)">
+                                <i class="fas fa-shopping-cart"></i> Add
+                            </button>
+                        </div>
+                        <div class="quantity-controls" style="display: none;">
+                            <button class="quantity-button" onclick="updateQuantity(this, -1)">-</button>
+                            <span class="quantity">1</span>
+                            <button class="quantity-button" onclick="updateQuantity(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <img src="./assets/product3.png" alt="Product 3">
+                    <div class="product-name-wrapper">
+                        <p>Product 3</p>
+                        <i class="far fa-heart heart-icon" onclick="toggleWishlist(this, 'Product 3')"></i>
+                    </div>
+                    <span>1kg</span>
+                    <div class="product-rating" style="margin-top: 10px;">
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star inactive"></i>
+                        <span style="font-size: 12px; color: #ADADAD;">(4)</span>
+
+                    </div>
+                    <div class="product-price-add">
+                        <div class="product-price">₹ 60</div>
+                        <div class="add-to-cart">
+                            <button class="add-to-cart-button" onclick="addToCart(this)">
+                                <i class="fas fa-shopping-cart"></i> Add
+                            </button>
+                        </div>
+                        <div class="quantity-controls" style="display: none;">
+                            <button class="quantity-button" onclick="updateQuantity(this, -1)">-</button>
+                            <span class="quantity">1</span>
+                            <button class="quantity-button" onclick="updateQuantity(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <img src="./assets/product4.png" alt="Product 4">
+                    <div class="product-name-wrapper">
+                        <p>Product 4</p>
+                        <i class="far fa-heart heart-icon" onclick="toggleWishlist(this, 'Product 4')"></i>
+                    </div>
+                    <span>1kg</span>
+                    <div class="product-rating" style="margin-top: 10px;">
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star inactive"></i>
+                        <span style="font-size: 12px; color: #ADADAD;">(4)</span>
+
+                    </div>
+                    <div class="product-price-add">
+                        <div class="product-price">₹ 60</div>
+                        <div class="add-to-cart">
+                            <button class="add-to-cart-button" onclick="addToCart(this)">
+                                <i class="fas fa-shopping-cart"></i> Add
+                            </button>
+                        </div>
+                        <div class="quantity-controls" style="display: none;">
+                            <button class="quantity-button" onclick="updateQuantity(this, -1)">-</button>
+                            <span class="quantity">1</span>
+                            <button class="quantity-button" onclick="updateQuantity(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div> 
+                <div class="product-item">
+                    <img src="./assets/product3.png" alt="Product 3">
+                    <div class="product-name-wrapper">
+                        <p>Product 3</p>
+                        <i class="far fa-heart heart-icon" onclick="toggleWishlist(this, 'Product 3')"></i>
+                    </div>
+                    <span>1kg</span>
+                    <div class="product-rating" style="margin-top: 10px;">
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star"></i>
+                        <i class="fas fa-star star inactive"></i>
+                        <span style="font-size: 12px; color: #ADADAD;">(4)</span>
+
+                    </div>
+                    <div class="product-price-add">
+                        <div class="product-price">₹ 60</div>
+                        <div class="add-to-cart">
+                            <button class="add-to-cart-button" onclick="addToCart(this)">
+                                <i class="fas fa-shopping-cart"></i> Add
+                            </button>
+                        </div>
+                        <div class="quantity-controls" style="display: none;">
+                            <button class="quantity-button" onclick="updateQuantity(this, -1)">-</button>
+                            <span class="quantity">1</span>
+                            <button class="quantity-button" onclick="updateQuantity(this, 1)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="arrow right-arrow"><i class="fas fa-arrow-right"></i></button>
+        </div>   
+    </div>
+    <div class="rect-imageshp">
+        <img src="assets/Rectangle.png" alt="" class="rec-img-1hp">
+        <img src="assets/Rectangle.png" alt="" class="rec-img-1hp">
+    </div>
+
+<!-- daily best -->
+<div class="daily-best-sells">
+    <div class="daily-best-header">
+        <div class="daily-best-header-left">
+            <p>Daily Best Sells</p>
+            <div class="daily-best-buttons">
+
+                <a href="index.html" class="daily-best-button">Featured</a>
+                <a href="popular.html" class="daily-best-button">Popular</a>
+                <a href="new-products.html" class="daily-best-button">New</a>
+            </div>
+
+            <div class="expires-in">
+                <span>Expires in :</span>
+                <div id="timer" style="margin-left: 15px;">0 : 00 : 00</div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="products-wrapper">
+        <div class="product-card">
+            <div class="discount-label">Save 10%</div>
+            <img src="./assets/product1.png" alt="Coffee">
+            <p class="category">Coffee & Tea</p>
+            <p class="product-title">Coffee 1kg</p>
+            <div class="product-rating">
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star star inactive"></i>
+                <span style="font-size: 12px; color: #ADADAD;">(4)</span>
+            </div>
+            <p class="seller"><span style="color: #ADADAD;">By</span> Mr. Food</p>
+            <div class="price">
+                <span class="new-price">₹ 64</span>
+                <span class="old-price">80</span>
+            </div>
+            <div class="sold">
+                <div class="sold-bar" style="width: 60%; border-radius: 5px"></div>
+                <span style="font-size: 12px; text-align: left">Sold: 20/50</span>
+            </div>
+            <!-- <button class="daily-add-to-cart-button"><i class="fas fa-shopping-cart"></i> Add to cart</button> -->
+            <div class="product-price-add">
+                <div class="add-to-cart">
+                    <button class="daily-add-to-cart-button" onclick="addToCart(this)">
+                        <i class="fas fa-shopping-cart"></i> Add to cart
+                    </button>
+                </div>
+                <div class="quantity-controls" style="display: none;">
+                    <button class="daily-best-quantity" onclick="updateQuantity(this, -1)">-</button>
+                    <span class="daily-quantity">1</span>
+                    <button class="daily-best-quantity" onclick="updateQuantity(this, 1)">+</button>
+                </div>
+            </div>
+    </div>
+    <div class="product-card">
+        <div class="discount-label">Save 10%</div>
+        <img src="./assets/product1.png" alt="Coffee">
+        <p class="category">Coffee & Tea</p>
+        <p class="product-title">Coffee 1kg</p>
+        <div class="product-rating">
+            <i class="fas fa-star star"></i>
+            <i class="fas fa-star star"></i>
+            <i class="fas fa-star star"></i>
+            <i class="fas fa-star star"></i>
+            <i class="fas fa-star star inactive"></i>
+            <span style="font-size: 12px; color: #ADADAD;">(4)</span>
+        </div>
+        <p class="seller"><span style="color: #ADADAD;">By</span> Mr. Food</p>
+        <div class="price">
+            <span class="new-price">₹ 64</span>
+            <span class="old-price">80</span>
+        </div>
+        <div class="sold">
+            <div class="sold-bar" style="width: 60%; border-radius: 5px"></div>
+            <span style="font-size: 12px; text-align: left">Sold: 20/50</span>
+        </div>
+        <!-- <button class="daily-add-to-cart-button"><i class="fas fa-shopping-cart"></i> Add to cart</button> -->
+        <div class="product-price-add">
+            <div class="add-to-cart">
+                <button class="daily-add-to-cart-button" onclick="addToCart(this)">
+                    <i class="fas fa-shopping-cart"></i> Add to cart
+                </button>
+            </div>
+            <div class="quantity-controls" style="display: none;">
+                <button class="daily-best-quantity" onclick="updateQuantity(this, -1)">-</button>
+                <span class="daily-quantity">1</span>
+                <button class="daily-best-quantity" onclick="updateQuantity(this, 1)">+</button>
+            </div>
+        </div>
+</div>
+<div class="product-card">
+    <div class="discount-label">Save 10%</div>
+    <img src="./assets/product1.png" alt="Coffee">
+    <p class="category">Coffee & Tea</p>
+    <p class="product-title">Coffee 1kg</p>
+    <div class="product-rating">
+        <i class="fas fa-star star"></i>
+        <i class="fas fa-star star"></i>
+        <i class="fas fa-star star"></i>
+        <i class="fas fa-star star"></i>
+        <i class="fas fa-star star inactive"></i>
+        <span style="font-size: 12px; color: #ADADAD;">(4)</span>
+    </div>
+    <p class="seller"><span style="color: #ADADAD;">By</span> Mr. Food</p>
+    <div class="price">
+        <span class="new-price">₹ 64</span>
+        <span class="old-price">80</span>
+    </div>
+    <div class="sold">
+        <div class="sold-bar" style="width: 60%; border-radius: 5px"></div>
+        <span style="font-size: 12px; text-align: left">Sold: 20/50</span>
+    </div>
+    <!-- <button class="daily-add-to-cart-button"><i class="fas fa-shopping-cart"></i> Add to cart</button> -->
+    <div class="product-price-add">
+        <div class="add-to-cart">
+            <button class="daily-add-to-cart-button" onclick="addToCart(this)">
+                <i class="fas fa-shopping-cart"></i> Add to cart
+            </button>
+        </div>
+        <div class="quantity-controls" style="display: none;">
+            <button class="daily-best-quantity" onclick="updateQuantity(this, -1)">-</button>
+            <span class="daily-quantity">1</span>
+            <button class="daily-best-quantity" onclick="updateQuantity(this, 1)">+</button>
+        </div>
+    </div>
+</div>
+<div class="product-card">
+    <div class="discount-label">Save 10%</div>
+    <img src="./assets/product1.png" alt="Coffee">
+    <p class="category">Coffee & Tea</p>
+    <p class="product-title">Coffee 1kg</p>
+    <div class="product-rating">
+        <i class="fas fa-star star"></i>
+        <i class="fas fa-star star"></i>
+        <i class="fas fa-star star"></i>
+        <i class="fas fa-star star"></i>
+        <i class="fas fa-star star inactive"></i>
+        <span style="font-size: 12px; color: #ADADAD;">(4)</span>
+    </div>
+    <p class="seller"><span style="color: #ADADAD;">By</span> Mr. Food</p>
+    <div class="price">
+        <span class="new-price">₹ 64</span>
+        <span class="old-price">80</span>
+    </div>
+    <div class="sold">
+        <div class="sold-bar" style="width: 60%; border-radius: 5px"></div>
+        <span style="font-size: 12px; text-align: left">Sold: 20/50</span>
+    </div>
+    <!-- <button class="daily-add-to-cart-button"><i class="fas fa-shopping-cart"></i> Add to cart</button> -->
+    <div class="product-price-add">
+        <div class="add-to-cart">
+            <button class="daily-add-to-cart-button" onclick="addToCart(this)">
+                <i class="fas fa-shopping-cart"></i> Add to cart
+            </button>
+        </div>
+        <div class="quantity-controls" style="display: none;">
+            <button class="daily-best-quantity" onclick="updateQuantity(this, -1)">-</button>
+            <span class="daily-quantity">1</span>
+            <button class="daily-best-quantity" onclick="updateQuantity(this, 1)">+</button>
+        </div>
+    </div>
+</div>
+        
+       
+
+        <!-- email new memver -->
+        <div class="new-member-offer">
+            <h3>10% OFF</h3>
+            <p style="color: #3BB77E; font-size: 16px;">For new members signing up for the first time</p>
+            <form class="signup-form">
+                <!-- <i class="fa-regular fa-envelope" style="color:#000000; text-align: left;">Email Address <span style="color: red;">*</span></i> -->
+                <p style="color:#000000; text-align: left;">Email Address <span style="color: red;">*</span></p>
+                <div class="input-wrapper">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="email" placeholder="abc@gmail.com" required>
+                </div>              
+                <p style="color:#000000; text-align: left;">Password <span style="color: red;">*</span></p>
+
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-key"></i>
+                    <input type="password" placeholder="Maximum 8 characters" required>
+
+                </div>  
+
+                <button type="submit">Register Now</button>
+            </form>
+        </div>
+    </div>
+</div>   
+
+<!-- top rated -->
+<div class="top-container">
+    <div class="top">
+        <p class="top-sells-heading">Top Sells</p>
+        <div class="product">
+            <img src="assets/ashirvad.png" alt="aashirvaad">
+            <div class="product-info">
+                <p class="top-product-name">Aashirvaad select</p>
+                <div class="product-rating" style="margin-bottom: 5px;">
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star inactive"></i>
+                    <span style="font-size: 12px; color: #ADADAD;">(4)</span>
+                </div>
+                <div class="price">
+                    <span class="new-price">₹ 64</span>
+                    <span class="old-price">80</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="assets/leaf.png" alt="leaf">
+            <div class="product-info">
+                <p class="top-product-name">Lorem Ipsum</p>
+                <div class="product-rating" style="margin-bottom: 5px;">
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star inactive"></i>
+                    <span style="font-size: 12px; color: #ADADAD;">(4)</span>
+                </div>
+                <div class="price">
+                    <span class="new-price">₹ 64</span>
+                    <span class="old-price">80</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="assets/starwberry.png" alt="starwberry">
+            <div class="product-info">
+                <p class="top-product-name">Lorem Ipsum</p>
+                <div class="product-rating" style="margin-bottom: 5px;">
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star inactive"></i>
+                    <span style="font-size: 12px; color: #ADADAD;">(4)</span>
+                </div>
+                <div class="price">
+                    <span class="new-price">₹ 64</span>
+                    <span class="old-price">80</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="top">
+        <p class="top-sells-heading">Top Rating</p>
+        <div class="product">
+            <img src="assets/salt.png" alt="Sugar">
+            <div class="product-info">
+                <p class="top-product-name">White Sugar</p>
+                <div class="product-rating" style="margin-bottom: 5px;">
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star inactive"></i>
+                    <span style="font-size: 12px; color: #ADADAD;">(4)</span>
+                </div>
+                <div class="price">
+                    <span class="new-price">₹ 64</span>
+                    <span class="old-price">80</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="assets/orange.png" alt="starwberry">
+            <div class="product-info">
+                <p class="top-product-name">Lorem Ipsum</p>
+                <div class="product-rating" style="margin-bottom: 5px;">
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star inactive"></i>
+                    <span style="font-size: 12px; color: #ADADAD;">(4)</span>
+                </div>
+                <div class="price">
+                    <span class="new-price">₹ 64</span>
+                    <span class="old-price">80</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="assets/apple.png" alt="starwberry">
+            <div class="product-info">
+                <p class="top-product-name">Lorem Ipsum</p>
+                <div class="product-rating" style="margin-bottom: 5px;">
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star inactive"></i>
+                    <span style="font-size: 12px; color: #ADADAD;">(4)</span>
+                </div>
+                <div class="price">
+                    <span class="new-price">₹ 64</span>
+                    <span class="old-price">80</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="top">
+        <p class="top-sells-heading">Trending Items</p>
+        <div class="product">
+            <img src="assets/carrot.png" alt="starwberry">
+            <div class="product-info">
+                <p class="top-product-name">Carrots 1kg</p>
+                <div class="product-rating" style="margin-bottom: 5px;">
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star inactive"></i>
+                    <span style="font-size: 12px; color: #ADADAD;">(4)</span>
+                </div>
+                <div class="price">
+                    <span class="new-price">₹ 64</span>
+                    <span class="old-price">80</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="assets/potato.png" alt="potato">
+            <div class="product-info">
+                <p class="top-product-name">Lorem Ipsum</p>
+                <div class="product-rating" style="margin-bottom: 5px;">
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star inactive"></i>
+                    <span style="font-size: 12px; color: #ADADAD;">(4)</span>
+                </div>
+                <div class="price">
+                    <span class="new-price">₹ 64</span>
+                    <span class="old-price">80</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="assets/carrot.png" alt="carrot">
+            <div class="product-info">
+                <p class="top-product-name">Lorem Ipsum</p>
+                <div class="product-rating" style="margin-bottom: 5px;">
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star inactive"></i>
+                    <span style="font-size: 12px; color: #ADADAD;">(4)</span>
+                </div>
+                <div class="price">
+                    <span class="new-price">₹ 64</span>
+                    <span class="old-price">80</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="top">
+        <p class="top-sells-heading">Recently added</p>
+        <div class="product">
+            <img src="assets/starwberry.png" alt="starwberry">
+            <div class="product-info">
+                <p class="top-product-name">Starwberry 1kgg</p>
+                <div class="product-rating" style="margin-bottom: 5px;">
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star inactive"></i>
+                    <span style="font-size: 12px; color: #ADADAD;">(4)</span>
+                </div>
+                <div class="price">
+                    <span class="new-price">₹ 64</span>
+                    <span class="old-price">80</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="assets/battery.png" alt="starwberry">
+            <div class="product-info">
+                <p class="top-product-name">Lorem Ipsum</p>
+                <div class="product-rating" style="margin-bottom: 5px;">
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star inactive"></i>
+                    <span style="font-size: 12px; color: #ADADAD;">(4)</span>
+                </div>
+                <div class="price">
+                    <span class="new-price">₹ 64</span>
+                    <span class="old-price">80</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="assets/gadget.png" alt="starwberry">
+            <div class="product-info">
+                <p class="top-product-name">Lorem Ipsum</p>
+                <div class="product-rating" style="margin-bottom: 5px;">
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star"></i>
+                    <i class="fas fa-star star inactive"></i>
+                    <span style="font-size: 12px; color: #ADADAD;">(4)</span>
+                </div>
+                <div class="price">
+                    <span class="new-price">₹ 64</span>
+                    <span class="old-price">80</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-contenthp">
+
+
+        
+        <div class="containerhp" style="background-image: url(assets/support\ bg.png); ">
+            <div class="image-sectionhp">
+                <img src="assets/image.png" alt="App Screenshotshp" class="app-screenshotshp">
+            </div>
+            <div class="text-sectionhp">
+                <h1>Connecting our user with iOS &</h1>
+                <h1> Android apps.Download from </h1>
+                <h1> App Store & Play store </h1>
+                <div class="inner-texthp">
+                    <p>Lorem ipsum dolor sit amet consectetur. Sit in sed sed rutrum </p>
+                    <p>ultrices egestas. Neque leo praesent odio diam. Vel amet vitae</p>
+                    <p>pulvinar cursus enim sagittis enim. Cum arcu vitae non scelerisque cursus eget mi.</p>
+                </div>
+                <div class="buttonshp">
+                    <a href="#" class="btnhp app-storehp">Download on the <br>
+                        <h1>App Store</h1>
+                    </a>
+                    <a href="#" class="btnhp google-playhp">Download on the<br>
+                        <h1>Google Play</h1>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="feature-containerhp">
+        <div class="featurehp">
+            <img src="assets/bestdeals.png" alt="Deals">
+            <div>
+                <h3>Best Prices & Deals</h3>
+                <p>Don't miss our daily amazing deals and prices</p>
+            </div>
+        </div>
+        <div class="featurehp">
+            <img src="assets/refundable.png" alt="Refund">
+            <div>
+                <h3>Refundable</h3>
+                <p>If your items have damage we agree to refund it</p>
+            </div>
+        </div>
+        <div class="featurehp">
+            <img src="assets/delivery.png" alt="Free Delivery">
+            <div>
+                <h3>Free Delivery</h3>
+                <p>Do purchase over ₹50 and get free delivery anywhere</p>
+            </div>
+        </div>
+    </div>
+    </div>
+    <footer>
+        <div class="footer-top">
+            <div class="contact-info">
+           <div>
+                   <div style="display: flex; align-items: center;">
+                       <img src="assets/logo.png" alt="Logo" style="width: 30px; height: 30px; margin-right: 10px;">
+                       <h4 style="margin: 0;">Drop It</h4>
+                   </div>
+                   <ul style="list-style-type: none; padding: 0;">
+                       <li>
+                           <i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i>
+                           <a href="#">Address</a>
+                       </li>
+                       <li>
+                           <i class="fas fa-phone" style="margin-right: 10px;"></i>
+                           <a href="#">Call us</a>
+                       </li>
+                       <li>
+                           <i class="fas fa-envelope" style="margin-right: 10px;"></i>
+                           <a href="#">Email</a>
+                       </li>
+                       <li>
+                           <i class="fas fa-clock" style="margin-right: 10px;"></i>
+                           <a href="#">Work Hours</a>
+                       </li>
+                   </ul>
+   
+               </ul>
+           </div>
+           </div>
+           <div>
+               <h4>Account</h4>
+               <ul>
+                   <li><a href="#">Wishlist</a></li>
+                   <li><a href="#">Cart</a></li>
+                   <li><a href="#">Track Orders</a></li>
+                   <li><a href="#">Shipping & Delivery</a></li>
+               </ul>
+           </div>
+           <div>
+               <h4>Useful Links</h4>
+               <ul>
+                   <li><a href="#">About Us</a></li>
+                   <li><a href="#">Contact</a></li>
+                   <li><a href="#">Hot Deals</a></li>
+                   <li><a href="#">Promotions</a></li>
+               </ul>
+           </div>
+           <div>
+               <h4>Help Centtre</h4>
+               <ul>
+                   <li><a href="#">Payments</a></li>
+                   <li><a href="#">Refund</a></li>
+                   <li><a href="#">Checkout</a></li>
+                   <li><a href="#">Q&A</a></li>
+                   <li><a href="#">Privacy Policy</a></li>                
+               </ul>
+           </div>
+       </div>
+        <div class="footer-bottom">
+            <div style="display: flex; align-items: center;">
+                <p style="color: black;">&copy; 2024 Grocery Mart. All rights reserved. | <a href="#">Privacy Policy</a></p>
+
+            </div>
+            <div class="social-links1">
+                <a href="#" class="twittericon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="twittericon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="twittericon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="twittericon"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+<!-- <script src="navbar.js"></script>
+<script src="slider.js"></script>
+<script src="favorite.js"></script>
+<script src="quantity.js"></script> -->
+<script src="script.js"></script>
+
+
+
+
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
